@@ -51,7 +51,8 @@ internal class AppleMusicDiscordClient {
             Assets = new Assets() {
                 LargeImageKey = amInfo.CoverArtUrl ?? Constants.DiscordAppleMusicImageKey,
                 LargeImageText = $"{amInfo.SongAlbum}",
-                SmallImageKey = (amInfo.CoverArtUrl == null) ? Constants.DiscordAppleMusicPlayImageKey : Constants.DiscordAppleMusicImageKey
+                SmallImageKey = amInfo.IsPaused ? Constants.DiscordAppleMusicPauseImageKey : "",
+                SmallImageText = amInfo.IsPaused ? "Paused" : ""
             }
         };
 
