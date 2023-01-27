@@ -196,7 +196,11 @@ namespace AMWin_RichPresence {
 
                     // check that the first result actually is the song
                     if (searchResultTitle == songName && searchResultSubtitle == $"Song · {songArtist}") {
-                        return x.Split(' ')[0];
+                        // get the 1024x1024 image
+                        var coverArtUrl = x.Split(' ')[0];
+                        var coverArtUrlParts = coverArtUrl.Split('/');
+                        coverArtUrlParts[coverArtUrlParts.Length - 1] = "1024x1024.jpg";
+                        return string.Join('/', coverArtUrlParts);
                     } 
                 }
                 return null;
