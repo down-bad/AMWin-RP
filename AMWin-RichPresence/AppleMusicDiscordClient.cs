@@ -26,7 +26,7 @@ internal class AppleMusicDiscordClient {
         }
     }
 
-    public void SetPresence(AppleMusicInfo amInfo) {
+    public void SetPresence(AppleMusicInfo amInfo, bool showSmallImage) {
         if (!enabled || !amInfo.HasSong) {
             return;
         }
@@ -55,6 +55,10 @@ internal class AppleMusicDiscordClient {
                 SmallImageText = amInfo.IsPaused ? "Paused" : ""
             }
         };
+
+        if (showSmallImage) {
+            rp.Assets.SmallImageKey = (amInfo.CoverArtUrl == null) ? Constants.DiscordAppleMusicPlayImageKey : Constants.DiscordAppleMusicImageKey;
+        }
 
         if (!amInfo.IsPaused) {
             rp = rp.WithTimestamps(new Timestamps(amInfo.PlaybackStart, amInfo.PlaybackEnd));

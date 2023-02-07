@@ -26,6 +26,10 @@ namespace AMWin_RichPresence {
         public static string  DiscordAppleMusicImageKey = "applemusic1024x";
         public static string  DiscordAppleMusicPlayImageKey = "applemusicplay1024x";
         public static string  DiscordAppleMusicPauseImageKey = "https://i.imgur.com/4j92v9v.png";
+
+        public static string LastFMCredentialTargetName = "Last FM Password";
+        public static int LastFMTimeBeforeScrobbling = 20; // seconds
+
         public static string WindowsStartupFolder => Environment.GetFolderPath(Environment.SpecialFolder.Startup);
         public static string AppShortcutPath => Path.Join(WindowsStartupFolder, "AMWin-RP.lnk");
         public static string? ExePath => Process.GetCurrentProcess().MainModule?.FileName;         
